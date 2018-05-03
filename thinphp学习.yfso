@@ -1,0 +1,27 @@
+命名空间：解决函数或类名冲突,随便写,默认使用命名空间下的；同意文件可以有多个命名空间
+输出当前命名空间	__NAMESPACE__
+-------------------------------------------------------------------------------------------------
+跨控制器调用
+1.new \app\index\controller\User()
+2.use \app\index\controller\User;
+3.$model=controller('User');实例化当前模块User控制器,如需要其他模块则 Admin\User
+跨方法调用
+action('test');action('User\test');action('Admin\User\test');
+-------------------------------------------------------------------------------------------------
+配置文件主要以数组配置
+return[
+	'name'=>''
+]
+惯例 thinkphp\convention.php											一般不修改
+应用 application\config.php												主要改这个
+扩展 默认两个扩展文件application\database.php	extra\用户自定义		对配置文件分类管理
+场景 应用配置里app_status设置,新建配置文件								环境不同是使用
+模块 在application\model下新建config.php								解决模块特有配置
+动态 通过系统方法或者系统类配置config('name','lyf')	\think\Config::set()
+
+读取配置config()	\think\Config::get()	读取扩展配置 config('扩展文件名.项')
+--------------------------------------------------------------------------------------------------
+路由
+
+1.绑定模块	index.php只能去前台	admin只能去后台	define('BIND_MODULE','admin')	绑定后不需要写模块名
+2.
