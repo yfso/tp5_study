@@ -7,6 +7,6 @@ class Index
     public function index()
     {
     	$test = new Test();
-       return $test->test();
+       return 'index'.$test->test();
     }
 }
