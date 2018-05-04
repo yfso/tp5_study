@@ -47,3 +47,5 @@ Route::rule('test4','index/test/test4');
 // Route::resource("test","index/test");
 //快捷路由
 // Route::controller('test','index/test');
+Route::controller('user','index/User');
+Route::controller('test01','index/Test01');
