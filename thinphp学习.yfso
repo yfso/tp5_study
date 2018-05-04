@@ -72,18 +72,29 @@ php think make:controller app\index\controller\somethink创建资源路由
 -----------------------------------------------------------------------------------------------------
 重定向 redirect(url,[id=>,name=>],编号) 301永久 302暂时
 -----------------------------------------------------------------------------------------------------
+请求类
+1.系统函数	request();	2.系统类 Request use think\request;	$request=Requeset::instance();
+3.系统控制器类Controller	function getdd(Request $request){echo $request;}
+获取域名：dump($request->domain());	除域名外的 $request->url();
+获取请求模块、控制器、方法$request->module()/controller()/action()
+获取请求类型：$request->method()/type()/ip()/isAjax()
+获取所有地址栏参数->param();	->only(['name','pass']);	->except();
+判断参数是否有 ->has('id','get');	input('?get.id');
+读取 ->get()/input('get.')	
 
+过滤:$request->filter("htmlspecialchars"或者["htmlspecialchars","strip_tags"]);
+$request->get('name','','htmlspecialchars,md5');
+更改变量：->get(['id'=>20]);
+判断请求类型
+-----------------------------------------------------------------------------------------------------
+数据库
+1.tp方法	use think\Db;  $DB=new Db();$DB::table("user")->select();
+2.sql语句	$DB::query("select * from");
 
-
-
-
-
-
-
-
-
-
-
+连接：1.使用database.php配置文件 
+2.使用方法配置$DB=Db::connect([]) 
+3.$DB=Db::connect("mysql://root:1234@localhost:3306/basename#utf8")
+4.模型类定义model中新建protected $connection=[];
 
 
 
@@ -104,7 +115,7 @@ php think make:controller app\index\controller\somethink创建资源路由
 
 
 ------------------------------------------------------------------------------------------------------
-系统类：
-Config 	Env	Controller  View  Route  URL
+系统类：think\
+Config 	Env	Controller  View  Route  Url  Request
 系统方法:
-config()  view()  controller()  action()  url()  dump()
+config()  view()  controller()  action()  url()  dump()	request()

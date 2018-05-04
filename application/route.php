@@ -49,3 +49,5 @@ Route::rule('test4','index/test/test4');
 // Route::controller('test','index/test');
 Route::controller('user','index/User');
 Route::controller('test01','index/Test01');
+Route::rule('Dbtest1','index/Dbtest/test1');
+Route::resource('msql','index/msql');
